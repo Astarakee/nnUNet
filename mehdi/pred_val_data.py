@@ -44,7 +44,10 @@ def main():
         dst = os.path.join(temp_data_fold, filename)
         shutil.copy(src, dst)
 
-    os.system('nnUNetv2_predict -i %s -o %s -d %s -c 3d_fullres -p nnUNetResEncUNetPlans -f 0 -chk checkpoint_best.pth' % (temp_data_fold , pred_path_fold, model_name))
+    os.system('nnUNetv2_predict -i %s -o %s -d %s -c 3d_fullres -p nnUNetResEncUNetPlans -f %s -chk checkpoint_best.pth' % (temp_data_fold , pred_path_fold, model_name, fold))
+    # os.system(
+    #     'nnUNetv2_predict -i %s -o %s -d %s -c 3d_fullres -p nnUNetResEncUNetPlans -f %s' % (
+    #     temp_data_fold, pred_path_fold, model_name, fold))
 
     return None
 
